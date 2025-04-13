@@ -1,7 +1,4 @@
-#  ___  ____  _  _  ____     ____  ____  ____ 
-/ __)( ___)( \( )(  _ \   (  _ \( ___)(_  _)
-\__ \ )__)  )  (  )(_) )   ) _ < )__)   )(  
-(___/(____)(_)\_)(____/   (____/(____) (__) 
+#  / __)( ___)( \( )(  _ \   (  _ \( ___)(_  _)\__ \ )__)  )  (  )(_) )   ) _ < )__)   )(  (___/(____)(_)\_)(____/   (____/(____) (__) 
 
 A Telegram-based simulated sports betting bot built with Python.  
 Inspired by SportyBet, but powered by the *Send.app* token for staking and payouts.
