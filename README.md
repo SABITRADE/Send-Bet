@@ -1,4 +1,4 @@
-# Send Bet
+# SEND BET
 
 A Telegram-based simulated sports betting bot built with Python.  
 Inspired by SportyBet, but powered by the *Send.app* token for staking and payouts.
