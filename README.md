@@ -1,7 +1,7 @@
-#  / __)( ___)( \( )(  _ \   (  _ \( ___)(_  _)\__ \ )__)  )  (  )(_) )   ) _ < )__)   )(  (___/(____)(_)\_)(____/   (____/(____) (__) 
+#  SEND BET
 
 A Telegram-based simulated sports betting bot built with Python.  
-Inspired by SportyBet, but powered by the *Send.app* token for staking and payouts.
+Inspired by SportyBet, Built by Junior Dev, but currency powered by the *Send.app* token for staking and payouts.
 
 ---
 
