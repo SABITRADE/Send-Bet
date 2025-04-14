@@ -1,1 +1,51 @@
-# This will contain command handlers like /start, /bet, etc.
+from telegram import Update
+from telegram.ext import CommandHandler, MessageHandler, filters, CallbackContext
+import json
+import os
+
+USERS_FILE = "data/users.json"
+
+def load_users():
+    if not os.path.exists(USERS_FILE):
+        return {}
+    with open(USERS_FILE, "r") as f:
+        return json.load(f)
+
+def save_users(users):
+    with open(USERS_FILE, "w") as f:
+        json.dump(users, f, indent=2)
+
+def start(update: Update, context: CallbackContext):
+    user_id = str(update.effective_user.id)
+    users = load_users()
+
+    if user_id in users:
+        update.message.reply_text("You're already registered with SEND BET.")
+        return
+
+    users[user_id] = {
+        "username": update.effective_user.username,
+        "wallet": None,
+        "bets": [],
+        "win": 0,
+        "loss": 0
+    }
+    save_users(users)
+
+    update.message.reply_text("Welcome to SEND BET!\n"Please reply with your *SendTag* (e.g. `/FirstSon`) to continue.", parse_mode="Markdown")
+
+def collect_wallet(update: Update, context: CallbackContext):
+    user_id = str(update.effective_user.id)
+    users = load_users()
+
+    if user_id not in users:
+        return
+
+    if users[user_id]["wallet"] is None:
+        wallet = update.message.text.strip()
+if wallet.startswith("/") and len(wallet) > 3:
+    users[user_id]["wallet"] = wallet
+    save_users(users)
+    update.message.reply_text(f"SendTag {wallet} linked successfully! You're now ready to start betting.")
+else:
+    update.message.reply_text("Invalid SendTag. It should start with `/` and be longer than 3 characters. Try again.")
